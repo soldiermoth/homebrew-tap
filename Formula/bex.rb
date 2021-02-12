@@ -5,20 +5,20 @@
 class Bex < Formula
   desc "Bobby's XML Utility"
   homepage "https://github.com/soldiermoth/bex"
-  version "0.0.3"
+  version "0.0.4"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/soldiermoth/bex/releases/download/v0.0.3/bex_0.0.3_Darwin_x86_64.tar.gz"
-    sha256 "775917dadf8daaf078622f8863afba77c04adfe2b28455806851f97787b26163"
+    url "https://github.com/soldiermoth/bex/releases/download/v0.0.4/bex_0.0.4_Darwin_x86_64.tar.gz"
+    sha256 "7395f58021b74ff041bc1aa18b8a19217f8cb69e16b9a95f7ceebefd0de00cbb"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/soldiermoth/bex/releases/download/v0.0.3/bex_0.0.3_Linux_x86_64.tar.gz"
-    sha256 "872c9c2013f8c3f052b812d5b174cebb5b7443f1e566d55b576abd4409128793"
+    url "https://github.com/soldiermoth/bex/releases/download/v0.0.4/bex_0.0.4_Linux_x86_64.tar.gz"
+    sha256 "80457368730b791d1a91b9a66eb5cddde6880234e3f131641a53e5e38658477e"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/soldiermoth/bex/releases/download/v0.0.3/bex_0.0.3_Linux_arm64.tar.gz"
-    sha256 "a67e9820d0600922e688f3636242d52ceadb0371dd5ff87dd627bec3c6662308"
+    url "https://github.com/soldiermoth/bex/releases/download/v0.0.4/bex_0.0.4_Linux_arm64.tar.gz"
+    sha256 "68bd34652118b14c0978b56cd5596582ef17c6c50ca20fe1322dbeed3337cd9f"
   end
 
   def install
