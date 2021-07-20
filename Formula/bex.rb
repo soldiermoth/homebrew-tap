@@ -5,20 +5,29 @@
 class Bex < Formula
   desc "Bobby's XML Utility"
   homepage "https://github.com/soldiermoth/bex"
-  version "0.0.4"
+  version "0.0.5"
   bottle :unneeded
 
-  if OS.mac?
-    url "https://github.com/soldiermoth/bex/releases/download/v0.0.4/bex_0.0.4_Darwin_x86_64.tar.gz"
-    sha256 "7395f58021b74ff041bc1aa18b8a19217f8cb69e16b9a95f7ceebefd0de00cbb"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/soldiermoth/bex/releases/download/v0.0.5/bex_0.0.5_Darwin_x86_64.tar.gz"
+      sha256 "88d296eb85cfb26da8a927e400fb8c1a5cda4cf002a642513b9d527fc307cb50"
+    end
   end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/soldiermoth/bex/releases/download/v0.0.4/bex_0.0.4_Linux_x86_64.tar.gz"
-    sha256 "80457368730b791d1a91b9a66eb5cddde6880234e3f131641a53e5e38658477e"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/soldiermoth/bex/releases/download/v0.0.4/bex_0.0.4_Linux_arm64.tar.gz"
-    sha256 "68bd34652118b14c0978b56cd5596582ef17c6c50ca20fe1322dbeed3337cd9f"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/soldiermoth/bex/releases/download/v0.0.5/bex_0.0.5_Linux_x86_64.tar.gz"
+      sha256 "1fe9d1601862318acbb610df224edb034f6579b5953e8dcade9fb74d1fe7fd2d"
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/soldiermoth/bex/releases/download/v0.0.5/bex_0.0.5_Linux_armv6.tar.gz"
+      sha256 "fe6aae09fac32dba894994eac149bdaa1d8e4e519d78fb56aea29a712841c6d5"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/soldiermoth/bex/releases/download/v0.0.5/bex_0.0.5_Linux_arm64.tar.gz"
+      sha256 "7d53633dd484461c164b00142963509414c93ff95b3100113485140a74e20f15"
+    end
   end
 
   def install
