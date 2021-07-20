@@ -5,20 +5,25 @@
 class Csvx < Formula
   desc "CSV File Utility"
   homepage "https://github.com/soldiermoth/csvx"
-  version "0.1.0"
+  version "0.1.1"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/soldiermoth/csvx/releases/download/v0.1.0/csvx_0.1.0_Darwin_x86_64.tar.gz"
-    sha256 "c5f85e0124d79346f3cc07f70d26c34d3ccc72486dfdff44e30b5f834bbd4408"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.1/csvx_0.1.1_Darwin_x86_64.tar.gz"
+      sha256 "9bd78f0198d7f9e96585a049d084008fe1874f126c1655f3596fa180622a67a8"
+    end
   end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/soldiermoth/csvx/releases/download/v0.1.0/csvx_0.1.0_Linux_x86_64.tar.gz"
-    sha256 "f55c6a5501fe6b0f8b1095da9ddb0f4e2fc0a1806f5008bbbfba8a77fac5a9ce"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/soldiermoth/csvx/releases/download/v0.1.0/csvx_0.1.0_Linux_arm64.tar.gz"
-    sha256 "c36d800c64239eff240ed59d5302d3ec0a73ecfde1e5e6c49c6c7b2a24a6cdd5"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.1/csvx_0.1.1_Linux_x86_64.tar.gz"
+      sha256 "7c324133fe7b3566112086ae551761ec618de1bf9e5e199334188b4295ed00c5"
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.1/csvx_0.1.1_Linux_armv6.tar.gz"
+      sha256 "435fecf65f7ba945856cf278dd5d757a6d9fc55f65bff10d99b4c248dd513be2"
+    end
   end
 
   def install
