@@ -5,28 +5,32 @@
 class Bex < Formula
   desc "Bobby's XML Utility"
   homepage "https://github.com/soldiermoth/bex"
-  version "0.0.5"
+  version "0.0.7"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/soldiermoth/bex/releases/download/v0.0.5/bex_0.0.5_Darwin_x86_64.tar.gz"
-      sha256 "88d296eb85cfb26da8a927e400fb8c1a5cda4cf002a642513b9d527fc307cb50"
+      url "https://github.com/soldiermoth/bex/releases/download/v0.0.7/bex_0.0.7_Darwin_x86_64.tar.gz"
+      sha256 "52285f68e5dd6049fb67c496637017c6eab073bcd44ab5f66cdfc633135e89c2"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/soldiermoth/bex/releases/download/v0.0.7/bex_0.0.7_Darwin_arm64.tar.gz"
+      sha256 "b5928369673fc5ebb2072215e1dcf1572a686b71ecbc7c21f26abd0f7851a8b9"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/soldiermoth/bex/releases/download/v0.0.5/bex_0.0.5_Linux_x86_64.tar.gz"
-      sha256 "1fe9d1601862318acbb610df224edb034f6579b5953e8dcade9fb74d1fe7fd2d"
+      url "https://github.com/soldiermoth/bex/releases/download/v0.0.7/bex_0.0.7_Linux_x86_64.tar.gz"
+      sha256 "4e0c402b21bdaa7a6b1c3623dcbdaab82f32eeebf9ce8bd090df9a6ecbb22741"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/soldiermoth/bex/releases/download/v0.0.5/bex_0.0.5_Linux_armv6.tar.gz"
-      sha256 "fe6aae09fac32dba894994eac149bdaa1d8e4e519d78fb56aea29a712841c6d5"
+      url "https://github.com/soldiermoth/bex/releases/download/v0.0.7/bex_0.0.7_Linux_armv6.tar.gz"
+      sha256 "4b79de65f5c150924c9bbd07c194de7ae96cc5a5b9c8bae9dd908f79ef0b27a1"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/soldiermoth/bex/releases/download/v0.0.5/bex_0.0.5_Linux_arm64.tar.gz"
-      sha256 "7d53633dd484461c164b00142963509414c93ff95b3100113485140a74e20f15"
+      url "https://github.com/soldiermoth/bex/releases/download/v0.0.7/bex_0.0.7_Linux_arm64.tar.gz"
+      sha256 "c0b115c58221551ef7ba378af2e7b2d8914bc8483e3aee92a8b7507dc817a25b"
     end
   end
 
