@@ -5,23 +5,35 @@
 class Hlsq < Formula
   desc "Add some color to your HLS manifests"
   homepage "https://github.com/soldiermoth/hlsq"
-  version "0.1.1"
-  bottle :unneeded
+  version "0.1.2"
 
-  if OS.mac?
-    url "https://github.com/soldiermoth/hlsq/releases/download/v0.1.1/hlsq_0.1.1_Darwin_x86_64.tar.gz"
-    sha256 "67b4ae5c5b292443e2930bd5a11d663fba592647b516ee4882159ccd901267ea"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/soldiermoth/hlsq/releases/download/v0.1.1/hlsq_0.1.1_Linux_x86_64.tar.gz"
-    sha256 "2388c69149a97c6f0c3fb60b6e25769ba95ead3f998c2b98b202a467bcaa2a5c"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/soldiermoth/hlsq/releases/download/v0.1.1/hlsq_0.1.1_Linux_arm64.tar.gz"
-    sha256 "6c0ee0962684381c5510a1b27a6e2d908836f515f771de24b63a1067d414cd37"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/soldiermoth/hlsq/releases/download/v0.1.2/hlsq_0.1.2_Darwin_x86_64.tar.gz"
+      sha256 "71db76065c3a0899aaac6f6c8de2e489c6158f466a1dadba5b32db1b45e4eb7f"
+
+      def install
+        bin.install "hlsq"
+      end
+    end
   end
 
-  def install
-    bin.install "hlsq"
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/soldiermoth/hlsq/releases/download/v0.1.2/hlsq_0.1.2_Linux_x86_64.tar.gz"
+      sha256 "27b790a677f440281da83ffade0c6c5fa5c69216b1db2dd9f00d64f5e302bb69"
+
+      def install
+        bin.install "hlsq"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/soldiermoth/hlsq/releases/download/v0.1.2/hlsq_0.1.2_Linux_arm64.tar.gz"
+      sha256 "13b9ebd3b1aa8fa46157222ddb0eb9c3fdc65c7adec69257c52f61eeca7b9e4b"
+
+      def install
+        bin.install "hlsq"
+      end
+    end
   end
 end
