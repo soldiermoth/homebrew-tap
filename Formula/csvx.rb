@@ -5,36 +5,51 @@
 class Csvx < Formula
   desc "CSV File Utility"
   homepage "https://github.com/soldiermoth/csvx"
-  version "0.1.2"
-  bottle :unneeded
+  version "0.1.3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.2/csvx_0.1.2_Darwin_x86_64.tar.gz"
-      sha256 "dfe78091ce2068a4e1d8366433ac6a0c9fc3f9056c5abd5fdb59367c4c6ce21a"
+      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.3/csvx_0.1.3_Darwin_x86_64.tar.gz"
+      sha256 "1631872bf330ee7bf733da8c58d80b067c6bf29e13fde2319b657917d0b6a908"
+
+      def install
+        bin.install "csvx"
+      end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.2/csvx_0.1.2_Darwin_arm64.tar.gz"
-      sha256 "34b5374979eb411f23e099595ced4e761eee630d03968d671e0bc8e4c5e2371f"
+      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.3/csvx_0.1.3_Darwin_arm64.tar.gz"
+      sha256 "a3ba38a7cef6698aa8c8ddb92ce485c26eee2c49545d15c3c136b4997086c61c"
+
+      def install
+        bin.install "csvx"
+      end
     end
   end
 
   on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.3/csvx_0.1.3_Linux_arm64.tar.gz"
+      sha256 "b664052933e8e2e5a71abbf6c39607c64cdc32bef576bdc3a137baad717d03f1"
+
+      def install
+        bin.install "csvx"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.2/csvx_0.1.2_Linux_x86_64.tar.gz"
-      sha256 "49e1acb0f13477cbc9950cfcf2fd2605dd919e6af8c0181c41d74862df2c6439"
+      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.3/csvx_0.1.3_Linux_x86_64.tar.gz"
+      sha256 "9c781777977f3fcac877f6324d5e8dfc3bc37774732a060bd8a0260f5ffe6f0d"
+
+      def install
+        bin.install "csvx"
+      end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.2/csvx_0.1.2_Linux_armv6.tar.gz"
-      sha256 "e021b7ca527441d030b4e721baa3aeecc61c83ea549bfe659fc2786593ef8179"
-    end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.2/csvx_0.1.2_Linux_arm64.tar.gz"
-      sha256 "28028ae3c2b4155a5d23d055bd611fa5edb4a0debacd37617ed1e051f6f2bdcf"
-    end
-  end
+      url "https://github.com/soldiermoth/csvx/releases/download/v0.1.3/csvx_0.1.3_Linux_armv6.tar.gz"
+      sha256 "12fe65fc4cb8acc43226931c7b2a0a4bf60379ce25c7a1d425478795c2942506"
 
-  def install
-    bin.install "csvx"
+      def install
+        bin.install "csvx"
+      end
+    end
   end
 end
